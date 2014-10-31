@@ -1,11 +1,11 @@
-2014-Oct-30 23:20:38 -0700 localhost.localdomain INFO [log-timbre.core] - Hello, Timbre! info
-2014-Oct-30 23:20:38 -0700 localhost.localdomain INFO [log-timbre.core] - Hello, Timbre! spy :info Hello, Timbre! spy :info
-2014-Oct-30 23:20:38 -0700 localhost.localdomain DEBUG [log-timbre.core] - Hello, Timbre! debug
-2014-Oct-30 23:20:38 -0700 localhost.localdomain INFO [log-timbre.core] - arg2 arg3
+2014-Oct-31 01:04:25 -0700 localhost.localdomain INFO [log-timbre.core] - Hello, Timbre! info
+2014-Oct-31 01:04:25 -0700 localhost.localdomain INFO [log-timbre.core] - (* 6 7) 42
+2014-Oct-31 01:04:25 -0700 localhost.localdomain DEBUG [log-timbre.core] - Hello, Timbre! debug
+2014-Oct-31 01:04:25 -0700 localhost.localdomain INFO [log-timbre.core] - arg2 arg3
 [1;31mjava.lang.Exception[m: [3mDoh![m
-         [33mlog-timbre.core/[1;33m-main[m  [32m                        core.clj:   40[m
+         [33mlog-timbre.core/[1;33m-main[m  [32m                        core.clj:   44[m
        [37mclojure.lang.Var.invoke[m  [32m                        Var.java:  375[m
-                    [33muser/[1;33meval3[m  [32mform-init6351954486598347102.clj:    1[m
+                    [33muser/[1;33meval3[m  [32mform-init8219833536773759683.clj:    1[m
     [37mclojure.lang.Compiler.eval[m  [32m                   Compiler.java: 6767[m
     [37mclojure.lang.Compiler.eval[m  [32m                   Compiler.java: 6757[m
     [37mclojure.lang.Compiler.load[m  [32m                   Compiler.java: 7194[m
@@ -21,15 +21,15 @@
       [37mclojure.lang.Var.applyTo[m  [32m                        Var.java:  700[m
              [37mclojure.main.main[m  [32m                       main.java:   37[m
 
-2014-Oct-30 23:20:38 -0700 localhost.localdomain INFO [log-timbre.core] - (my-fn) =>  42
-2014-Oct-30 23:20:39 -0700 localhost.localdomain INFO [log-timbre.core] - Profiling: :log-timbre.core/Arithmetic
+2014-Oct-31 01:04:25 -0700 localhost.localdomain INFO [log-timbre.core] - (my-fn) =>  42
+2014-Oct-31 01:04:26 -0700 localhost.localdomain INFO [log-timbre.core] - Profiling: :log-timbre.core/Arithmetic
                          Id      nCalls       Min        Max       MAD      Mean   Time% Time
-:log-timbre.core/slow-sleep         100     2.0ms      6.0ms   107.0μs     2.0ms      43 213.0ms
-:log-timbre.core/fast-sleep         100     1.0ms      1.0ms    11.0μs     1.0ms      22 108.0ms
-       :log-timbre.core/div         100    68.0μs      2.0ms   122.0μs   266.0μs       5 27.0ms
-       :log-timbre.core/sub         100    71.0μs      1.0ms    80.0μs   226.0μs       5 23.0ms
-      :log-timbre.core/mult         100    42.0μs      2.0ms   121.0μs   201.0μs       4 20.0ms
-       :log-timbre.core/add         100    57.0μs      1.0ms    84.0μs   197.0μs       4 20.0ms
-                 Clock Time                                                          100 496.0ms
-             Accounted Time                                                           83 410.0ms
+:log-timbre.core/slow-sleep         100     2.0ms      2.0ms    11.0μs     2.0ms      44 208.0ms
+:log-timbre.core/fast-sleep         100     1.0ms      1.0ms     6.0μs     1.0ms      23 107.0ms
+       :log-timbre.core/div         100   112.0μs    465.0μs    71.0μs   234.0μs       5 23.0ms
+       :log-timbre.core/sub         100    93.0μs    471.0μs    40.0μs   192.0μs       4 19.0ms
+       :log-timbre.core/add         100    78.0μs    483.0μs    39.0μs   169.0μs       4 17.0ms
+      :log-timbre.core/mult         100    68.0μs    383.0μs    61.0μs   158.0μs       3 16.0ms
+                 Clock Time                                                          100 470.0ms
+             Accounted Time                                                           83 391.0ms
 

@@ -15,6 +15,10 @@
 (timbre/set-config! [:appenders :standard-out   :enabled?] false)   
 (timbre/set-config! [:appenders :spit           :enabled?] true)
 (timbre/set-config! [:shared-appender-config :spit-filename] log-file-name)
+(timbre/set-config! [:shared-appender-config :spit-filename] log-file-name)
+
+; Set the lowest-level to output as :debug
+(timbre/set-level! :debug)
 
 (defn my-fn
   "A simple fn to demonstrate profiling"
@@ -32,9 +36,9 @@
 
   ; Demonstrate logging with Timbre
   (info "Hello, Timbre! info")
-  (spy :info "Hello, Timbre! spy :info")
+  (assert (= 42 (spy :info (* 6 7))))
   (debug "Hello, Timbre! debug")
-  (trace "Hello, Timbre! trace")
+  (trace "Hello, Timbre! trace")  ; will not be logged, below current log-level
 
   ; Even exceptions look nice in the logs
   (info (Exception. "Doh!") "arg2" "arg3")
