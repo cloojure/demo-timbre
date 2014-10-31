@@ -3,15 +3,21 @@
             [taoensso.timbre :as timbre] )
   (:gen-class))
 
+; Set up the name of the log output file and delete any contents from previous runs (the
+; default is to continually append all runs to the file).
 (def log-file-name "log.txt")
 (io/delete-file log-file-name :quiet)
 
 (timbre/refer-timbre) ; set up timbre aliases
-(timbre/set-config! [:appenders :standard-out   :enabled?] false)   ; turn off console logging
-(timbre/set-config! [:appenders :spit           :enabled?] true)    ; turn on file logging
-(timbre/set-config! [:shared-appender-config :spit-filename] log-file-name) ; output filename
+
+; The default setup is simple console logging.  We with to turn off console logging and
+; turn on file logging to our chosen filename.
+(timbre/set-config! [:appenders :standard-out   :enabled?] false)   
+(timbre/set-config! [:appenders :spit           :enabled?] true)
+(timbre/set-config! [:shared-appender-config :spit-filename] log-file-name)
 
 (defn my-fn
+  "A simple fn to demonstrate profiling"
   []
   (let [nums (vec (range 1000))]
     (+ (p :fast-sleep (Thread/sleep 1) 10)
@@ -39,6 +45,5 @@
 
   ; If this is omitted there is a one minute delay before (non-daemon) agent 
   ; threads will shutdown
-  (println "Shutting down...")
   (shutdown-agents) 
 )
