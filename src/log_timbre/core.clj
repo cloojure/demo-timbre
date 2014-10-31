@@ -45,9 +45,8 @@
   ; Demonstrate 3 arities of spy
   (info "Arg-1")
   (info "Arg-1" :Arg-2)
-  (info "Arg-1" :Arg-2 "Arg-3")
-  (info "Arg-1" :Arg-2 "Arg-3" ["Arg-4"] )
-  (info "Arg-1" :Arg-2 "Arg-3" ["Arg-4"] {:Arg 5} )
+  (info "Arg-1" :Arg-2 ["Arg-3"] )
+  (info "Arg-1" :Arg-2 ["Arg-3"] {:Arg 4} )
 
   ; Demonstrate 3 arities of spy
   (assert (= {:a 1}     (spy :info "Spy returns the last value" {:a 1} )))
