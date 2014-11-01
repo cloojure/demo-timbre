@@ -62,6 +62,6 @@
   (profile :info :Arithmetic (dotimes [n 100] (my-fn)))
 
   ; If this is omitted there is a one minute delay before (non-daemon) agent 
-  ; threads will shutdown
+  ; threads will shutdown.  Note that this is now required for "lein test", though.
   (shutdown-agents) 
 )
