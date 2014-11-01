@@ -116,8 +116,11 @@ Just execute using lein:
   (info "(my-fn) => " (my-fn))
   (profile :info :Arithmetic (dotimes [n 100] (my-fn)))
 
-  ; If this is omitted there is a one minute delay before (non-daemon) agent 
-  ; threads will shutdown.  Note that this is now required for "lein test", though.
+  ; Note that when using "lein run", we must place a call to (shutdown-agents) at the end of
+  ; the main program.  If this is omitted there is a one minute delay before (non-daemon)
+  ; agent threads will shutdown.  For some reason, however, this is not required for "lein
+  ; test".  Presumably "lein test" either calls either (shutdown-agents) or (System/exit 0)
+  ; when it is complete.
   (shutdown-agents) 
 )
 ----
